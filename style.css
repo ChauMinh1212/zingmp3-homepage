@@ -222,6 +222,7 @@ li {
   display: block;
   overflow: hidden;
   border-radius: 6px;
+  cursor: pointer;
 }
 .app_content_container_item_img img {
   transition: transform 0.5s ease;
