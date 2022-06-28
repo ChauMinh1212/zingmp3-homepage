@@ -8,9 +8,9 @@ const sidebar = document.querySelector(".app_side-bar");
 const x = window.matchMedia("(max-width: 1115px)");
 
 if (x.matches) {
-  sidebar.classList.remove("show");
-} else {
   sidebar.classList.add("show");
+} else {
+  sidebar.classList.remove("show");
 }
 
 btnShow.addEventListener("click", function () {
