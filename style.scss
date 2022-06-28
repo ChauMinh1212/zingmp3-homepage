@@ -20,8 +20,9 @@ li {
 }
 
 .app {
-  display: flex;
   &_side-bar {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 30%);
+
     height: 100vh;
     padding: 20px 0px;
     background-color: #2a213a;
@@ -52,19 +53,18 @@ li {
       overflow-y: scroll;
     }
 
-    &_menu.bot:hover::-webkit-scrollbar-thumb{
-        visibility: visible;
+    &_menu.bot:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
     }
 
     &_menu.bot::-webkit-scrollbar {
       width: 4px;
-      
     }
 
     &_menu.bot::-webkit-scrollbar-thumb {
-        visibility: hidden;
-        background: #888; 
-      }
+      visibility: hidden;
+      background: #888;
+    }
 
     &_item {
       font-size: 1.4rem;
@@ -106,8 +106,8 @@ li {
         text-transform: uppercase;
         font-weight: 700;
         &:hover {
-            filter: brightness(80%);
-            cursor: pointer;
+          filter: brightness(80%);
+          cursor: pointer;
         }
       }
     }
@@ -134,15 +134,16 @@ li {
       &_left {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
+        flex-grow: 1;
+        i {
+          font-size: 2rem;
+        }
       }
-      &_nextpre {
-        font-size: 2rem;
-        font-weight: 400;
-      }
+
       &_search {
-        width: 540px;
-        height: 40px;
         position: relative;
+        width: 70%;
         span {
           position: absolute;
           left: 10px;
@@ -155,7 +156,7 @@ li {
           border: none;
           background-color: #2a213a;
           width: 100%;
-          height: 100%;
+          height: 40px;
           line-height: 40px;
           color: #fff;
           outline: none;
@@ -216,8 +217,7 @@ li {
       }
       &_list {
         display: flex;
-        flex-wrap: wrap;
-        margin-right: -20px;
+        flex-wrap: nowrap;
       }
       &_item {
         width: calc(20% - 20px);
@@ -301,7 +301,7 @@ li {
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-            cursor: pointer;;
+            cursor: pointer;
             &:hover {
               color: #c662ef;
             }
@@ -517,4 +517,105 @@ li {
 
 .wrapper_side-bar {
   padding: 0 15px;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+.app_side-bar_menu.mobile {
+  display: none;
+}
+.app_side-bar_menu.deskstop {
+  display: block;
+}
+.show-btn,
+.hide-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #4a4747;
+  color: #fff;
+  cursor: pointer;
+}
+
+.app_side-bar.show {
+  width: 250px;
+  z-index: 2;
+}
+.show {
+  .app_side-bar_menu.mobile {
+    display: none;
+  }
+  .app_side-bar_menu.deskstop {
+    display: block;
+  }
+  .app_side-bar_menu.mobile.bot {
+    display: none;
+  }
+  .app_side-bar_menu.deskstop.bot {
+    display: block;
+  }
+  .app_side-bar_logo {
+    width: 150px;
+    .deskstop-logo {
+      display: block;
+    }
+    .mobile-logo {
+      display: none;
+    }
+  }
+}
+
+.show-btn-p {
+  display: none;
+  justify-content: center;
+}
+.app_side-bar_menu.mobile {
+  .app_side-bar_item {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 1115px) {
+  .mobile-logo {
+    display: block;
+  }
+  .deskstop-logo {
+    display: none;
+  }
+  .app_side-bar {
+    width: 70px;
+  }
+  .app_content {
+    margin-left: 70px;
+  }
+  .app_side-bar_logo {
+    width: 100%;
+    padding: 0 15px;
+  }
+  .app_side-bar_menu.mobile {
+    display: block;
+  }
+  .app_side-bar_menu.deskstop {
+    display: none;
+  }
+  .app_side-bar_menu.mobile.bot {
+    display: block;
+  }
+  .app_side-bar_menu.deskstop.bot {
+    display: none;
+  }
+  .show-btn-p {
+    display: flex;
+    .hide-btn {
+      display: none;
+    }
+  }
+  .app_content_container_item {
+    width: calc(25% - 20px);
+    &:last-child {
+      display: none;
+    }
+  }
 }
